@@ -15,6 +15,6 @@ public:
         int sum = 0;
         solve(root, sum);
 
-        return root;
+        return root
     }
 };
