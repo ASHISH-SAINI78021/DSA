@@ -12,7 +12,9 @@ public:
             }
             st.push(num[i]);
         }
-        while (!st.empty() && k) st.pop();
+        while (!st.empty() && k){
+            k--; st.pop();
+        }
         while (!st.empty()){
             ans += st.top(); st.pop();
         }
