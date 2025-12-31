@@ -16,5 +16,7 @@ public:
     }
 };
 
-// T.C -> O(2*n)
-// S.C -> O(2*n)
+// T.C -> min(no: of nodes in p, no: of nodes in q)
+// S.C -> O(h)
+// Where h -> n when given tree is skew tre
+// where h -> n when given tree is balanced
