@@ -18,7 +18,7 @@ public:
                         a++;
                         b--;
                         while (a < b && nums[a] == nums[a - 1]) a++;
-                        while (a < b && nums[b] == nums[b + 1]) b++;
+                        while (a < b && nums[b] == nums[b + 1]) b--;
                     }
                     else if (sum > target) b--;
                     else a++;
