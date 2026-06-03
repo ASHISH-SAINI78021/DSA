@@ -1,27 +1,37 @@
 class Solution {
   public:
     vector<int> findUnion(vector<int> &a, vector<int> &b) {
-        vector<int> arr;
         int n = a.size();
         int m = b.size();
+        vector<int> ans;
         int i = 0; int j = 0;
         
         while (i < n && j < m){
+            int val;
             if (a[i] < b[j]){
-                arr.push_back(a[i++]);
+                val = a[i++];
             }
-            else arr.push_back(b[j++]);
+            else if (a[i] > b[j]) val = b[j++];
+            else {
+                val = a[i];
+                i++;
+                j++;
+            }
+            
+            while (ans.empty() || ans.back() != val) ans.push_back(val);
         }
         
-        while (i < n) arr.push_back(a[i++]);
-        while (j < m) arr.push_back(b[j++]);
-        
-        vector<int> ans;
-        for (int i = 1; i < arr.size(); i++){
-            if (arr[i] != arr[i - 1]) ans.push_back(arr[i - 1]);
+         while (i < n) {
+            if (ans.empty() || ans.back() != a[i])
+                ans.push_back(a[i]);
+            i++;
         }
-        if (m + n - 1 >= 0) ans.push_back(arr[m + n - 1]);
-        
+
+        while (j < m) {
+            if (ans.empty() || ans.back() != b[j])
+                ans.push_back(b[j]);
+            j++;
+        }
         
         return ans;
     }
